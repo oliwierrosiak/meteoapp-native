@@ -19,8 +19,6 @@ function Header(props)
                 </View>
                     
             </View>
-                
-
         </View>
     )
 }
