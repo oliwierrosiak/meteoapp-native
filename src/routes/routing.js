@@ -5,11 +5,11 @@ function Routing(props)
 {
     if(props.route === "home")
     {
-        return <Home />
+        return <Home setRoute={props.setRoute} setSearchValue={props.setSearchValue}/>
     }
     else if(props.route === "search")
     {
-        return <Search />
+        return <Search searchValue={props.searchValue}/>
     }
 }
 
