@@ -7,13 +7,13 @@ import Routing from './src/routes/routing';
 
 export default function App() {
 
-  // const[route,setRoute] = useState('home')
-  // const[searchValue,setSearchValue] = useState()
-  const[route,setRoute] = useState('search')
-  const[searchValue,setSearchValue] = useState("gnienzo")
+  const[route,setRoute] = useState('home')
+  const[searchValue,setSearchValue] = useState()
+  // const[route,setRoute] = useState('search')
+  // const[searchValue,setSearchValue] = useState("gnienzo")
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, Platform.OS === "android" && styles.saveAreaAndroid]}>
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.avoidCon}>
           
           

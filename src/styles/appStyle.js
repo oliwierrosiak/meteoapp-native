@@ -10,6 +10,11 @@ const styles = StyleSheet.create({
     },
     avoidCon:{
         flex:1
+    },
+    saveAreaAndroid:
+    {
+        paddingTop:30,
+        paddingBottom:20,
     }
 })
 
