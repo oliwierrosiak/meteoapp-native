@@ -4,8 +4,7 @@ async function getWeather(place)
 {
     try
     {
-        // const response = await axios.get(`${ApiAddress}?place=${place}`)
-        const response = await axios.get(`http://192.168.33.454`)
+        const response = await axios.get(`${ApiAddress}?place=${place}`)
         if(response.data)
         {
             console.log(response.data)

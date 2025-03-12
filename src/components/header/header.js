@@ -1,13 +1,21 @@
 import { View,Image,TextInput, Text, TouchableOpacity, Platform } from "react-native"
 import styles from "../../styles/headerStyle"
+import { useState } from "react"
 function Header(props)
 {
+    const[searchVal,setSearchVal] = useState('')
+
+    const search = () =>
+    {
+        props.setSearchValue(searchVal)
+    }
+
     return(
         <View style={styles.container}>
             <Image style={styles.logo} source={require('../../../assets/logo1.png')} />
             
             <View style={styles.inputContainer}>
-                <TextInput style={styles.input} placeholder="Szukaj miejsca..." placeholderTextColor="grey"/>
+                <TextInput style={styles.input} placeholder="Szukaj miejsca..." placeholderTextColor="grey" value={searchVal} onChangeText={(val)=>{setSearchVal(val)}}/>
                 <View style={styles.menu}>
                     <TouchableOpacity style={styles.gpsButton}>
                             <Image source={require('../../../assets/gps.png')} style={styles.location}/>
@@ -15,7 +23,7 @@ function Header(props)
 
                     <View style={styles.line}></View>
 
-                    <TouchableOpacity style={styles.button}><Image style={styles.searchImg} source={require('../../../assets/search.png')} /></TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={search}><Image style={styles.searchImg} source={require('../../../assets/search.png')} /></TouchableOpacity>
                 </View>
                     
             </View>

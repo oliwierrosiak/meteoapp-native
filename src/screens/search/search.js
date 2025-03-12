@@ -6,7 +6,8 @@ function Search(props)
 {
     return(
         <View style={styles.container}>
-            <Header />
+
+            <Header setSearchValue={props.setSearchValue}/>
 
         </View>
     )

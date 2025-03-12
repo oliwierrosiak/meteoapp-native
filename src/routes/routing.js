@@ -9,7 +9,7 @@ function Routing(props)
     }
     else if(props.route === "search")
     {
-        return <Search searchValue={props.searchValue}/>
+        return <Search setSearchValue={props.setSearchValue}/>
     }
 }
 
