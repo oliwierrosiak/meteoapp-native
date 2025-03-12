@@ -27,7 +27,7 @@ function Home(props)
             <View style={styles.content}>
                 <Image style={styles.image} source={require('../../../assets/logo2.png')} />
                 <View style={styles.inputContainer}>
-                    <TextInput placeholder="Podaj miejscowość..." ref={inputRef} autoCorrect={false} style={styles.input} value={inputValue} onChangeText={(val)=>{setInputValue(val)}}/>
+                    <TextInput placeholder="Podaj miejscowość..." placeholderTextColor="grey" ref={inputRef} autoCorrect={false} style={styles.input} value={inputValue} onChangeText={(val)=>{setInputValue(val)}}/>
                     <Image source={require('../../../assets/gps.png')} style={styles.location}/>
                 </View>
                 <TouchableOpacity style={styles.button} onPress={search}><Text style={styles.buttonText}>Sprawdź pogodę</Text></TouchableOpacity>

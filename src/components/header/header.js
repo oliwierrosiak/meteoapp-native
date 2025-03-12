@@ -7,8 +7,8 @@ function Header(props)
             <Image style={styles.logo} source={require('../../../assets/logo1.png')} />
             
             <View style={styles.inputContainer}>
-                <TextInput style={styles.input} placeholder="Wpisz nowe miejsce..."/>
-                <View style={[styles.menu,Platform.OS === "ios" && styles.iosCenter]}>
+                <TextInput style={styles.input} placeholder="Szukaj miejsca..." placeholderTextColor="grey"/>
+                <View style={styles.menu}>
                     <TouchableOpacity style={styles.gpsButton}>
                             <Image source={require('../../../assets/gps.png')} style={styles.location}/>
                         </TouchableOpacity>

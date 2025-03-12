@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         paddingTop:10,
         paddingBottom:20,
         borderBottomWidth:5,
-        borderBottomColor:"grey",
+        borderBottomColor:"#444444",
     },
     logo:{
         width:50,
@@ -32,6 +32,9 @@ const styles = StyleSheet.create({
         paddingRight:100,
         borderRadius:8,
         width:"100%",
+        height:50,
+        textAlignVertical: "center",
+        includeFontPadding: false,
     },
     menu:{
         position: `absolute`,
@@ -43,10 +46,6 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         alignItems:"center",
         gap:7,
-    },
-    iosCenter:{
-        transform:'none',
-        top:8,
     },
     button:{
         backgroundColor:'#410ba5',
