@@ -6,6 +6,10 @@ const styles = StyleSheet.create({
         backgroundColor: `#01182b`,
         height:`100%`,
         width:`100%`,
+        flex:1,
+    },
+    avoidCon:{
+        flex:1
     }
 })
 
