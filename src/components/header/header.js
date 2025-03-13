@@ -1,4 +1,4 @@
-import { View,Image,TextInput, Text, TouchableOpacity, Platform } from "react-native"
+import { View,Image,TextInput, Text, TouchableOpacity, Platform, Keyboard } from "react-native"
 import styles from "../../styles/headerStyle"
 import { useState } from "react"
 function Header(props)
@@ -7,6 +7,7 @@ function Header(props)
 
     const search = () =>
     {
+        Keyboard.dismiss()
         props.setSearchValue(searchVal)
     }
 

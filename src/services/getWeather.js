@@ -5,19 +5,19 @@ async function getWeather(place)
     try
     {
         const response = await axios.get(`${ApiAddress}?place=${place}`)
-        if(response.data)
+        if(response.data.current)
         {
-            console.log(response.data)
             return response.data
         }
         else
         {
-            throw new Error()
+            throw new Error(400)
         }
     }
     catch(ex)
     {
-        return null
+        const error = ex.message == 400?400:500
+        return {errorCode: error}
     }
 }
 

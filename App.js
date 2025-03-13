@@ -10,39 +10,29 @@ export default function App() {
 
   const[route,setRoute] = useState('home')
   const[searchValue,setSearchValue] = useState()
-  const[weatherInfo,setWeatherInfo] = useState({})
-  const[weatherError,setWeatherError] = useState('')
+  const[weatherInfo,setWeatherInfo] = useState(null)
+  const[getLoading,setGetLoading] = useState(false)
 
   const getWeatherInfo = async()=>
   {
     const weather = await getWeather(searchValue)
-    if(weather)
-    {
-      setWeatherInfo(weather.current)
-    }
-    else
-    {
-      setWeatherError("Wystąpił bład przy pobieraniu pogody. Spróbuj ponownie później")
-    }
+    setWeatherInfo(weather)
   }
 
   useEffect(()=>{
     if(searchValue)
     {
+      setGetLoading(true)
       getWeatherInfo()
     }
   },[searchValue])
-
-  useEffect(()=>{
-    console.log(weatherInfo)
-  },[weatherInfo])
 
   return (
     <SafeAreaView style={[styles.container, Platform.OS === "android" && styles.saveAreaAndroid]}>
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.avoidCon}>
           
           
-          <Routing route={route} setRoute={setRoute} searchValue={searchValue} setSearchValue={setSearchValue}/>
+          <Routing route={route} setRoute={setRoute} searchValue={searchValue} setSearchValue={setSearchValue} getLoading={getLoading} weatherInfo={weatherInfo} setGetLoading={setGetLoading}/>
 
 
         </KeyboardAvoidingView>
