@@ -11,12 +11,12 @@ async function getWeather(place)
         }
         else
         {
-            throw new Error(400)
+            throw new Error(404)
         }
     }
     catch(ex)
     {
-        const error = ex.message == 400?400:500
+        const error = ex.message == 404?404:503
         return {errorCode: error}
     }
 }

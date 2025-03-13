@@ -1,4 +1,4 @@
-import { ActivityIndicator, ScrollView, Text,View } from "react-native"
+import { ActivityIndicator, ScrollView, Text,View, Image } from "react-native"
 import styles from "../../styles/weatherContentStyle"
 import { useEffect, useState } from "react"
 
@@ -27,8 +27,17 @@ function WeatherContent(props)
                 <ActivityIndicator style={styles.loading} color={"white"}/>
             </View>
         :(error?
-            <View>
-
+            <View style={styles.errorContainer}>
+                {error == 404?
+                <>
+                    <Image style={styles.image} source={require('../../../assets/locationNotFound.png')} />
+                    <Text style={styles.errorText}>Nie znaleziono lokalizacji</Text>
+                </>
+                :
+                <>
+                    <Image style={styles.image} source={require('../../../assets/serverError.png')} />
+                    <Text style={[styles.errorText,styles.serverErrorText]}>Wystąpił błąd połączenia z serwerem</Text>
+                </>}
             </View>
         :
             <ScrollView style={styles.weatherContainer}>
