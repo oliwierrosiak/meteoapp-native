@@ -5,7 +5,7 @@ async function getWeather(place)
     try
     {
         const response = await axios.get(`${ApiAddress}?place=${place}`)
-        if(response.data.current)
+        if(response.data && !response.data.status)
         {
             return response.data
         }

@@ -3,13 +3,13 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     loadingContainer:{
         width:`100%`,
-        height:`100%`,
+        height:`80%`,
         display:"flex",
         alignItems:"center",
         justifyContent:"center",
     },
     loading:{
-        transform:"scale(4)",
+        transform:"scale(3)",
     },
     weatherContainer:{
         width:"100%",
@@ -40,6 +40,18 @@ const styles = StyleSheet.create({
     image:{
         width:100,
         height:100
+    },
+    h1:{
+        color:"white"
+    },
+    h2:{
+        color:"white"
+    },
+    location:{
+        color:"white"
+    },
+    conditions:{
+        color:"white"
     }
 })
 
