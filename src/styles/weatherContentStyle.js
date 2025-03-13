@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
     weatherContainer:{
         width:"100%",
         height:"100%",
-        backgroundColor:"pink"
     },
     errorContainer:{
         width:"100%",
@@ -25,7 +24,7 @@ const styles = StyleSheet.create({
         flexDirection:"column",
         gap:30,
     },
-    image:{
+    errorImage:{
         width:200,
         height:200
     },
@@ -37,6 +36,10 @@ const styles = StyleSheet.create({
     },
     serverErrorText:{
         color:"red",
+    },
+    image:{
+        width:100,
+        height:100
     }
 })
 
