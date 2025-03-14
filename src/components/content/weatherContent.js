@@ -10,7 +10,6 @@ function WeatherContent(props)
     useEffect(()=>{
         if(props.weatherInfo)
         {
-            console.log(props.weatherInfo)
             if(props.weatherInfo.errorCode)
             {
                 setError(props.weatherInfo.errorCode)
@@ -60,37 +59,37 @@ function WeatherContent(props)
                 </View>
                 
                 <View style={styles.item}>
-                    <Text style={styles.h1}>{data.temperature}</Text>
+                    <Text style={styles.h1}>{data.temperature}°C</Text>
                     <Text style={styles.h2}>Temperatura</Text>
                 </View>
 
                 <View style={styles.item}>
-                    <Text style={styles.h1}>{data.feelsLike}</Text>
+                    <Text style={styles.h1}>{data.feelsLike}°C</Text>
                     <Text style={styles.h2}>Temperatura odczuwalna</Text>
                 </View>
 
                 <View style={styles.item}>
-                    <Text style={styles.h1}>{data.cloud}%</Text>
+                    <Text style={styles.h1}>{data.cloud} %</Text>
                     <Text style={styles.h2}>Zachmurzenie</Text>
                 </View>
 
                 <View style={styles.item}>
-                    <Text style={styles.h1}>{data.rain}mm</Text>
+                    <Text style={styles.h1}>{data.rain} mm</Text>
                     <Text style={styles.h2}>Deszcz</Text>
                 </View>
 
                 <View style={styles.item}>
-                    <Text style={styles.h1}>{data.humidity}</Text>
+                    <Text style={styles.h1}>{data.humidity} %</Text>
                     <Text style={styles.h2}>Wilgotność</Text>
                 </View>
 
                 <View style={styles.item}>
-                    <Text style={styles.h1}>{data.pressure}</Text>
+                    <Text style={styles.h1}>{data.pressure} hPa</Text>
                     <Text style={styles.h2}>Ciśnienie</Text>
                 </View>
 
                 <View style={styles.item}>
-                    <Text style={styles.h1}>{data.windSpeed}</Text>
+                    <Text style={styles.h1}>{data.windSpeed} km/h</Text>
                     <Text style={styles.h2}>Prędkość wiatru</Text>
                 </View>
 
@@ -119,7 +118,7 @@ function WeatherContent(props)
                     <Text style={styles.h2}>Strefa czasowa</Text>
                 </View>
 
-                <View style={styles.item}>
+                <View style={[styles.item,styles.fullWidthItem]}>
                     <Text style={styles.h1}>{data.lastUpdate}</Text>
                     <Text style={styles.h2}>Ostatnia aktualizacja</Text>
                 </View>

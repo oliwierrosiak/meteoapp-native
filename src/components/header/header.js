@@ -9,6 +9,7 @@ function Header(props)
     {
         Keyboard.dismiss()
         props.setSearchValue(searchVal)
+        setSearchVal('')
     }
 
     return(

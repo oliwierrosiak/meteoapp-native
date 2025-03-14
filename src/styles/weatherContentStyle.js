@@ -19,13 +19,13 @@ const styles = StyleSheet.create({
         justifyContent: "center", 
         paddingVertical:20,
         paddingHorizontal:30,
-        gap:30,
+        gap:40,
     },
     infoHeader:{
         width:`100%`,
         flexDirection:"column",
         justifyContent:"center",
-        marginBottom:20,
+        marginBottom:10,
     },
     infoHeaderH1:{
         flexDirection:"row",
@@ -52,10 +52,11 @@ const styles = StyleSheet.create({
         textAlign:"center"
     },
     item:{
-        width:`45%`,
+        width:`40%`,
         alignItems:'center',
         justifyContent:"center",
         flexDirection:"column",
+        gap:10
     },
     errorContainer:{
         width:"100%",
@@ -93,7 +94,9 @@ const styles = StyleSheet.create({
         fontSize:15,
          textAlign:"center"
     },
-
+    fullWidthItem:{
+        width:"100%"
+    }
 
 })
 
