@@ -44,13 +44,19 @@ function WeatherContent(props)
                 </>}
             </View>
         :
-            <ScrollView style={styles.weatherContainer}>
-                <View>
+            <View style={styles.weatherContainer} keyboardShouldPersistTaps="handled">
+                <View style={styles.infoHeader}>
+                    <View style={styles.infoHeaderH1}>
                     <Image source={{uri:`http:${data.icon}`}} style={styles.image}/>
 
-                    <Text style={styles.location}>{data.name}</Text>
+                        <Text style={styles.location}>{data.name}</Text>
 
-                    <Text style={styles.conditions}>{data.condition}</Text>
+                    </View>
+                    <View style={styles.infoHeaderH2}>
+                        <Text style={styles.conditions}>{data.condition}</Text>
+
+                    </View>
+
                 </View>
                 
                 <View style={styles.item}>
@@ -118,7 +124,7 @@ function WeatherContent(props)
                     <Text style={styles.h2}>Ostatnia aktualizacja</Text>
                 </View>
 
-            </ScrollView>
+            </View>
             )
     )
 }

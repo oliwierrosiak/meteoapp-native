@@ -1,10 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'react-native';
 import { SafeAreaView, Text, View, KeyboardAvoidingView, ScrollView, Platform, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import styles from './src/styles/appStyle'
 import { useEffect, useState } from 'react';
 import Routing from './src/routes/routing';
 import getWeather from './src/services/getWeather';
-
+import * as SystemUI from "expo-system-ui";
 
 export default function App() {
 
@@ -26,6 +26,13 @@ export default function App() {
       getWeatherInfo()
     }
   },[searchValue])
+
+  useEffect(()=>{
+    if (Platform.OS === "android") {
+      StatusBar.setTranslucent(true); // Naprawia problemy z klawiaturą
+      SystemUI.setBackgroundColorAsync("transparent"); // Unika migania ekranu
+    }
+  },[])
 
   return (
     <SafeAreaView style={[styles.container, Platform.OS === "android" && styles.saveAreaAndroid]}>
