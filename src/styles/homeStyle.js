@@ -36,10 +36,16 @@ const styles = StyleSheet.create({
     location:{
         width:30,
         height:30,
+    },
+    gpsButton:{
+        width:30,
+        height:30,
         position:"absolute",
         right:8,
         top:`50%`,
-        transform:`translate(0%,-50%)`
+        transform:`translate(0%,-50%)`,
+        justifyContent:"center",
+        alignItems:"center"
     },
     button:{
         width:"100%",
@@ -55,7 +61,8 @@ const styles = StyleSheet.create({
         fontSize:23,
         fontWeight:`700`,
         color:"#fff"
-    }
+    },
+
 })
 
 export default styles

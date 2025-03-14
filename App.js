@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import Routing from './src/routes/routing';
 import getWeather from './src/services/getWeather';
 import * as SystemUI from "expo-system-ui";
+import getLocation from './src/services/getLoaction';
+import * as Location from 'expo-location';
 
 export default function App() {
 
@@ -29,8 +31,8 @@ export default function App() {
 
   useEffect(()=>{
     if (Platform.OS === "android") {
-      StatusBar.setTranslucent(true); // Naprawia problemy z klawiaturą
-      SystemUI.setBackgroundColorAsync("transparent"); // Unika migania ekranu
+      StatusBar.setTranslucent(true);
+      SystemUI.setBackgroundColorAsync("transparent");
     }
   },[])
 
