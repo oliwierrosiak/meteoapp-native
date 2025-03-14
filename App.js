@@ -38,16 +38,9 @@ export default function App() {
 
   return (
     <SafeAreaView style={[styles.container, Platform.OS === "android" && styles.saveAreaAndroid]}>
-        <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.avoidCon}>
-          
-          
-          <Routing route={route} setRoute={setRoute} searchValue={searchValue} setSearchValue={setSearchValue} getLoading={getLoading} weatherInfo={weatherInfo} setGetLoading={setGetLoading}/>
-
-
-        </KeyboardAvoidingView>
-
-
-
+        
+      <Routing route={route} setRoute={setRoute} searchValue={searchValue} setSearchValue={setSearchValue} getLoading={getLoading} weatherInfo={weatherInfo} setGetLoading={setGetLoading}/>
+    
     </SafeAreaView>
   );
 }

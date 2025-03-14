@@ -1,4 +1,4 @@
-import { Text, View, Image, TextInput, TouchableOpacity, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, Pressable, ActivityIndicator } from "react-native"
+import { Text, View, Image, TextInput, TouchableOpacity, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, Pressable, ActivityIndicator, Platform } from "react-native"
 import styles from "../../styles/homeStyle"
 import { useRef, useState } from "react"
 import getLocation from "../../services/getLoaction"
@@ -72,7 +72,8 @@ function Home(props)
     }
 
     return(
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} keyboardShouldPersistTaps="handled">
+        <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.avoidCon} keyboardShouldPersistTaps="handled">
         <View style={styles.container}>
             <View style={styles.content}>
                 <Image style={styles.image} source={require('../../../assets/logo2.png')} />
@@ -86,6 +87,7 @@ function Home(props)
                 <TouchableOpacity style={styles.button} onPress={search}><Text style={styles.buttonText}>Sprawdź pogodę</Text></TouchableOpacity>
             </View>
         </View>
+        </KeyboardAvoidingView>
         </TouchableWithoutFeedback>
     )
 }
