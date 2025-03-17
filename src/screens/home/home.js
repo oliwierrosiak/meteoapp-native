@@ -1,7 +1,7 @@
 import { Text, View, Image, TextInput, TouchableOpacity, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, Pressable, ActivityIndicator, Platform } from "react-native"
 import styles from "../../styles/homeStyle"
 import { useRef, useState } from "react"
-import getLocation from "../../services/getLoaction"
+import getLocation from "../../services/getLocation"
 function Home(props)
 {
     const[inputValue,setInputValue] = useState('')

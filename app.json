@@ -12,12 +12,21 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "plugins": [
+      [
+        "expo-background-fetch",
+        {
+          "minimumInterval": 60
+        }
+      ]
+    ],
     "ios": {
       "supportsTablet": true,
-        "infoPlist": 
-        {
-          "NSLocationWhenInUseUsageDescription": "Potrzebujemy dostępu do lokalizacji aby uzyskać dane pogodowe."
-        }
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Potrzebujemy dostępu do lokalizacji aby uzyskać dane pogodowe.",
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "bundleIdentifier": "com.anonymous.xnative"
     },
     "android": {
       "adaptiveIcon": {
@@ -26,11 +35,19 @@
       },
       "permissions": [
         "ACCESS_FINE_LOCATION",
-        "ACCESS_COARSE_LOCATION"
-      ]
+        "ACCESS_COARSE_LOCATION",
+        "android.permission.RECEIVE_BOOT_COMPLETED",
+        "android.permission.WAKE_LOCK"
+      ],
+      "package": "com.anonymous.xnative"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "079de987-5a8f-4ff6-93f3-a628f9d3a6d9"
+      }
     }
   }
 }

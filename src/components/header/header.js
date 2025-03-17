@@ -1,7 +1,7 @@
 import { View,Image,TextInput, Text, TouchableOpacity, Platform, Keyboard, Pressable, ActivityIndicator } from "react-native"
 import styles from "../../styles/headerStyle"
 import { useState } from "react"
-import getLocation from "../../services/getLoaction"
+import getLocation from "../../services/getLocation"
 function Header(props)
 {
     const[searchVal,setSearchVal] = useState('')

@@ -5,8 +5,7 @@ import { useEffect, useState } from 'react';
 import Routing from './src/routes/routing';
 import getWeather from './src/services/getWeather';
 import * as SystemUI from "expo-system-ui";
-import getLocation from './src/services/getLoaction';
-import * as Location from 'expo-location';
+import { ensureBackgroundTask } from './src/services/backgroundTaks';
 
 export default function App() {
 
@@ -34,6 +33,8 @@ export default function App() {
       StatusBar.setTranslucent(true);
       SystemUI.setBackgroundColorAsync("transparent");
     }
+
+    ensureBackgroundTask()
   },[])
 
   return (
