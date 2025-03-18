@@ -1,21 +1,37 @@
 import * as Location from 'expo-location';
 
-async function getLocation()
-{
+async function getLocation() {
+    try {
+        let location = await Location.getLastKnownPositionAsync({ accuracy: Location.Accuracy.High });
+        if (!location) {
+            location = await new Promise((resolve, reject) => {
+                Location.watchPositionAsync(
+                    { accuracy: Location.Accuracy.BestForNavigation, timeInterval: 5000, distanceInterval: 10 },
+                    (loc) => {
+                        resolve(loc);
+                    }
+                );
+                setTimeout(() => reject(new Error()), 10000);
+            });
+        }
 
-
-    let { status } = await Location.requestForegroundPermissionsAsync();
-    if (status === 'granted') {
-        let location = await Location.getCurrentPositionAsync({});
         let address = await Location.reverseGeocodeAsync({
             latitude: location.coords.latitude,
             longitude: location.coords.longitude,
         });
-        return address
-    }
-    else
+        if(address[0]?.city)
+        {
+            return address
+        }
+        else
+        {
+            throw new Error()
+        }
+        
+    } 
+    catch(ex)
     {
-        return null
+        return null;
     }
 }
 

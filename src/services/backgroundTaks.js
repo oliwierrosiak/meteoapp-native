@@ -5,34 +5,32 @@ import sendLocalization from './sendLocalization';
 
 const backgroundTaskName = 'send-location';
 
-TaskManager.defineTask(backgroundTaskName, async () => {
-    console.log("wykonywanie")
-    try
-    {
-        const location = await getLocation()
-        if(location[0]?.city)
+
+TaskManager.defineTask(backgroundTaskName,async() => {
+    (async () => {
+        try {
+            const location = await getLocation();
+            console.log("wysyłanie")
+            console.log(location)
+            if (location) {
+                await sendLocalization(location[0].city);
+            }
+        } 
+        catch(ex)
         {
-            console.log("wysyłam lokalizacje")
-            sendLocalization(location[0].city)
+            console.error(ex);
         }
-        else
-        {
-            throw new Error()
-        }
-    }
-    catch(ex)
-    {
-        return BackgroundFetchResult.Failed;
-    }
-    
+    })();
+
+    return BackgroundFetchResult.NewData;
 });
 
 
-export const registerBackgroundTask = async () => {
+const registerBackgroundTask = async () => {
         try
         {
             await registerTaskAsync(backgroundTaskName, {
-                minimumInterval: 60,
+                minimumInterval: 600,
                 stopOnTerminate: false,
                 startOnBoot: true, 
             });
@@ -47,13 +45,7 @@ export const registerBackgroundTask = async () => {
 export const ensureBackgroundTask = async () => {
     const isRegistered = await TaskManager.isTaskRegisteredAsync(backgroundTaskName);
     if (!isRegistered) {
-        console.log("zadanie jest nieaktywne")
+        console.log("zadanie jest zarejestronwane")
         registerBackgroundTask();
     }
-    else
-    {
-        console.log("zadanie jest aktywne")
-    }
 };
-
-ensureBackgroundTask();

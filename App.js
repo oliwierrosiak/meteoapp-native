@@ -6,6 +6,7 @@ import Routing from './src/routes/routing';
 import getWeather from './src/services/getWeather';
 import * as SystemUI from "expo-system-ui";
 import { ensureBackgroundTask } from './src/services/backgroundTaks';
+import * as Location from 'expo-location';
 
 export default function App() {
 
@@ -28,12 +29,18 @@ export default function App() {
     }
   },[searchValue])
 
+  const getLocalizationPermissions = async()=>
+  {
+    await Location.requestForegroundPermissionsAsync();
+    await Location.requestBackgroundPermissionsAsync();
+  }
+
   useEffect(()=>{
     if (Platform.OS === "android") {
       StatusBar.setTranslucent(true);
       SystemUI.setBackgroundColorAsync("transparent");
     }
-
+    getLocalizationPermissions()
     ensureBackgroundTask()
   },[])
 
