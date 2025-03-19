@@ -7,6 +7,9 @@ import getWeather from './src/services/getWeather';
 import * as SystemUI from "expo-system-ui";
 import { ensureBackgroundTask } from './src/services/backgroundTaks';
 import * as Location from 'expo-location';
+import * as Notifications from "expo-notifications";
+import sendLocalization from './src/services/sendLocalization';
+import { getNotificationPushToken } from './src/services/expoPushToken';
 
 export default function App() {
 
@@ -33,6 +36,7 @@ export default function App() {
   {
     await Location.requestForegroundPermissionsAsync();
     await Location.requestBackgroundPermissionsAsync();
+    await Notifications.requestPermissionsAsync();
   }
 
   useEffect(()=>{
@@ -42,6 +46,10 @@ export default function App() {
     }
     getLocalizationPermissions()
     ensureBackgroundTask()
+
+    // test wysyłania tokenu notifications
+      sendLocalization("Gniezno")
+    // getNotificationPushToken()
   },[])
 
   return (
