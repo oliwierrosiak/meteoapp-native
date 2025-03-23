@@ -33,6 +33,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
+      "googleServicesFile": "./google-services.json",
       "permissions": [
         "ACCESS_FINE_LOCATION",
         "ACCESS_COARSE_LOCATION",
@@ -42,7 +43,7 @@
         "FOREGROUND_SERVICE",
         "ACCESS_BACKGROUND_LOCATION"
       ],
-      "package": "com.anonymous.xnative"
+      "package": "com.meteoapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"

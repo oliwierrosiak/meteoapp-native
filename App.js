@@ -11,6 +11,8 @@ import * as Notifications from "expo-notifications";
 import sendLocalization from './src/services/sendLocalization';
 import { getNotificationPushToken } from './src/services/expoPushToken';
 
+
+
 export default function App() {
 
   const[route,setRoute] = useState('home')
@@ -49,7 +51,20 @@ export default function App() {
 
     // test wysyłania tokenu notifications
       sendLocalization("Gniezno")
-    // getNotificationPushToken()
+      // getNotificationPushToken()
+
+      const notificationListener = Notifications.addNotificationReceivedListener(notification => {
+        console.log("Powiadomienie odebrane:", notification);
+      });
+  
+      const responseListener = Notifications.addNotificationResponseReceivedListener(response => {
+        console.log("Powiadomienie otwarte:", response);
+      });
+
+      return () => {
+        Notifications.removeNotificationSubscription(notificationListener);
+        Notifications.removeNotificationSubscription(responseListener);
+      };
   },[])
 
   return (
