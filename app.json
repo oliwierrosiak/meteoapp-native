@@ -16,7 +16,7 @@
       [
         "expo-background-fetch",
         {
-          "minimumInterval": 600
+          "minimumInterval": 60
         }
       ]
     ],
@@ -26,7 +26,7 @@
         "NSLocationWhenInUseUsageDescription": "Potrzebujemy dostępu do lokalizacji aby uzyskać dane pogodowe.",
         "ITSAppUsesNonExemptEncryption": false
       },
-      "bundleIdentifier": "com.anonymous.xnative"
+      "bundleIdentifier": "com.meteoapp"
     },
     "android": {
       "adaptiveIcon": {
